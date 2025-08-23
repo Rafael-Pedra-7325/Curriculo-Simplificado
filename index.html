@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currículo - Rafael Fernandes de Souza Pedra</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
+    }
+    :root {
+      --bg-color: #f4f4f4;
+      --text-color: #333;
+      --link-color: blue;
+    }
+    .dark-mode {
+      --bg-color: #333;
+      --text-color: #f4f4f4;
+      --link-color: white;
+    }
+    .email-link{
+      color: var(--link-color);
+    }
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 40px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+    h1, h2 {
+      border-bottom: 2px solid currentColor;
+      padding-bottom: 5px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+    .contact {
+      margin-bottom: 20px;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+    select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="name">Rafael Fernandes de Souza Pedra</h1>
+    <div class="buttons">
+      <button onclick="toggleDarkMode()">Alternar Tema</button>
+      <button onclick="downloadPDF()">Baixar PDF</button>
+      <select id="opcoes" onchange="toggleLanguage()">
+        <option value="PT">Português</option>
+        <option value="ING">Inglês</option>
+        <option value="ESP">Espanhol</option>
+      </select>
+    </div>
+    <div class="contact" id="contact">
+      <p>Email: <a href="mailto:rafaelfspedra@yahoo.com.br" class="email-link">rafaelfspedra@yahoo.com.br</a></p>
+      <p>Telefone: (61) 99183-4920</p>
+      <p>Localização: Brasília, Distrito Federal, Brasil</p>
+    </div>
+    <div class="section" id="profile">
+      <h2>Perfil</h2>
+      <p>Organizado, eficiente e pontual em busca de oportunidades que proporcionem um ambiente aberto para continuar crescendo.</p>
+    </div>
+    <div class="section" id="education">
+      <h2>Educação</h2>
+      <p>Cursando Ciência da Computação<br />Faculdade Uniceub | até novembro de 2027</p>
+    </div>
+    <div class="section" id="skills">
+      <h2>Habilidades</h2>
+      <ul>
+        <li>Atenção aos detalhes</li>
+        <li>Gerenciamento de tempo</li>
+        <li>Capacidade de seguir instruções</li>
+      </ul>
+    </div>
+    <div class="section" id="tech">
+      <h2>Conhecimentos Técnicos</h2>
+      <ul>
+        <li>Linguagem C (Intermediário)</li>
+        <li>HTML/CSS (Intermediário)</li>
+        <li>JavaScript (Intermediário)</li>
+        <li>Python (Intermediário)</li>
+        <li>Java (Básico)</li>
+        <li>SQL (Intermediário)</li>
+      </ul>
+    </div>
+    <div class="section" id="experience">
+      <h2>Experiências</h2>
+      <p><strong>Programador</strong>, Jan 2024 - Presente<br />Independente, Brasília</p>
+    </div>
+    <div class="section" id="languages">
+      <h2>Idiomas</h2>
+      <ul>
+        <li>Português - Nativo</li>
+        <li>Inglês - Intermediário</li>
+        <li>Espanhol - Intermediário</li>
+      </ul>
+    </div>
+    <footer>
+      &copy; 2025 Rafael Fernandes de Souza Pedra
+    </footer>
+  </div>
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+    function downloadPDF() {
+      window.open('curriculo.pdf', '_blank');
+    }
+    function toggleLanguage(){
+      const select = document.getElementById("opcoes");
+      const nome = document.getElementById('name');
+      const perfil = document.getElementById('profile');
+      const educacao = document.getElementById('education');
+      const habilidades = document.getElementById('skills');
+      const tecnico = document.getElementById('tech');
+      const experiencia = document.getElementById('experience');
+      const idiomas = document.getElementById('languages');
+      const contato = document.getElementById('contact');
+      const opcao = select.value;
+        if (opcao === "ING") {
+          perfil.innerHTML = '<h2>Profile</h2><p>Organized, efficient and punctual, seeking opportunities that provide an open environment to continue growing.</p>';
+          educacao.innerHTML = '<h2>Education</h2><p>Studying Computer Science<br />Uniceub University | until November 2027</p>';
+          habilidades.innerHTML = '<h2>Skills</h2><ul><li>Attention to detail</li><li>Time management</li><li>Ability to follow instructions</li></ul>';
+          tecnico.innerHTML = '<h2>Technical Knowledge</h2><ul><li>C Language (Intermediate)</li><li>HTML/CSS (Intermediate)</li><li>JavaScript (Intermediate)</li><li>Python (Intermediate)</li><li>Java (Basic)</li><li>SQL (Intermediate)</li></ul>';
+          experiencia.innerHTML = '<h2>Experience</h2><p><strong>Programmer</strong>, Jan 2024 - Present<br />Freelance, Brasília</p>';
+          idiomas.innerHTML = '<h2>Languages</h2><ul><li>Portuguese - Native</li><li>English - Intermediate</li><li>Spanish - Intermediate</li></ul>';
+          contato.innerHTML = '<p>Email: <a href="mailto:rafaelfspedra@yahoo.com.br" class="email-link">rafaelfspedra@yahoo.com.br</a></p><p>Phone: +55 61 99183-4920</p><p>Location: Brasília, Federal District, Brazil</p>';
+        }
+        else if(opcao === "PT"){
+          perfil.innerHTML = '<h2>Perfil</h2><p>Organizado, eficiente e pontual em busca de oportunidades que proporcionem um ambiente aberto para continuar crescendo.</p>';
+          educacao.innerHTML = '<h2>Educação</h2><p>Cursando Ciência da Computação<br />Faculdade Uniceub | até novembro de 2027</p>';
+          habilidades.innerHTML = '<h2>Habilidades</h2><ul><li>Atenção aos detalhes</li><li>Gerenciamento de tempo</li><li>Capacidade de seguir instruções</li></ul>';
+          tecnico.innerHTML = '<h2>Conhecimentos Técnicos</h2><ul><li>Linguagem C (Intermediário)</li><li>HTML/CSS (Intermediário)</li><li>JavaScript (Intermediário)</li><li>Python (Intermediário)</li><li>Java (Básico)</li><li>SQL (Intermediário)</li></ul>';
+          experiencia.innerHTML = '<h2>Experiências</h2><p><strong>Programador</strong>, Jan 2024 - Presente<br />Independente, Brasília</p>';
+          idiomas.innerHTML = '<h2>Idiomas</h2><ul><li>Português - Nativo</li><li>Inglês - Intermediário</li><li>Espanhol - Intermediário</li></ul>';
+          contato.innerHTML = '<p>Email: <a href="mailto:rafaelfspedra@yahoo.com.br" class="email-link">rafaelfspedra@yahoo.com.br</a></p><p>Telefone: (61) 99183-4920</p><p>Localização: Brasília, Distrito Federal, Brasil</p>';
+            }
+      else if (opcao === "ESP"){
+        perfil.innerHTML = '<h2>Perfil</h2><p>Organizado, eficiente y puntual en busca de oportunidades que proporcionen un ambiente abierto para continuar creciendo.</p>';
+        educacao.innerHTML = '<h2>Educación</h2><p>Cursando Ciência da Computação<br />Faculdade Uniceub | hasta noviembre de 2027</p>';
+        habilidades.innerHTML = '<h2>Habilidades</h2><ul><li>Atención a los detalles</li><li>Gestión de tiempo</li><li>Capacidad de seguir instrucciones</li></ul>';
+        tecnico.innerHTML = '<h2>Conocimientos Técnicos</h2><ul><li>Lenguaje C (Intermedio)</li><li>HTML/CSS (Intermedio)</li><li>JavaScript (intermedio)</li><li>Python (intermedio)</li><li>Java (Básico)</li><li>SQL (intermedio)</li></ul>';
+        experiencia.innerHTML = '<h2>Experiencias</h2><p><strong>Programador</strong>, Jan 2024 - Presente<br />Independiente, Brasília</p>';
+        idiomas.innerHTML = '<h2>Idiomas</h2><ul><li>Portugués - Nativo</li><li>Inglés - Intermedio</li><li>Español - Intermedio</li></ul>';
+        contato.innerHTML = '<p>Email: <a href="mailto:rafaelfspedra@yahoo.com.br" class="email-link">rafaelfspedra@yahoo.com.br</a></p><p>Teléfono: (61) 99183-4920</p><p>Localización: Brasília, Distrito Federal, Brasil</p>';
+      }
+      else {
+        location.reload();
+      }
+    }
+  </script>
+</body>
+</html>
